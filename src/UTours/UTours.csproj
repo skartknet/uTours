@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\UTours.Core\UTours.Core.csproj" />
+    <ProjectReference Include="..\UTours.Client\UTours.Client.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Umbraco.Community.$(MSBuildProjectName)</AssemblyName>
+  </PropertyGroup>
+
+</Project>
