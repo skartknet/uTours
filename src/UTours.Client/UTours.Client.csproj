@@ -6,6 +6,16 @@
     <Nullable>enable</Nullable>
     <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
     <AssemblyName>Umbraco.Community.$(MSBuildProjectName)</AssemblyName>
+	  <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Umbraco.Cms.Api.Management" Version="15.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UTours.Core\UTours.Core.csproj" />
+  </ItemGroup>
 
 </Project>

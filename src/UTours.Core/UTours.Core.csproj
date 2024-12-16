@@ -6,26 +6,9 @@
 		<Nullable>enable</Nullable>
 		<AssemblyName>Umbraco.Community.$(MSBuildProjectName)</AssemblyName>		
 	</PropertyGroup>
-
-
-
-	<ItemGroup>
-		<EmbeddedResource Include="Views\**\*.cshtml" />
-	</ItemGroup>
-
-
-
-	<ItemGroup>
-	  <EmbeddedResource Remove="Views\Components\Tours\Default.cshtml" />
-	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="System.Text.Json" Version="9.0.0" />
 		<PackageReference Include="Umbraco.Cms.Api.Management" Version="15.0.0" />
-	</ItemGroup>
-	<ItemGroup>
-	  <None Update="Views\Components\Tours\Default.cshtml">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
 	</ItemGroup>
 
 </Project>
