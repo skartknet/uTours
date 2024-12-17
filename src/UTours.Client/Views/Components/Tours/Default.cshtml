@@ -1,11 +1,17 @@
 @using System.Text.Json
 @using UTours.Core.ViewComponents
+@using Umbraco.Cms.Web.Common.PublishedModels
 
-@model TourViewComponentModel
+@model IEnumerable<UToursTour>
 
 @{
 
-    var firstTour = Model.Tours.FirstOrDefault();
+    var firstTour = Model.FirstOrDefault();
+
+    if (firstTour == null)
+    {
+        return;
+    }
 
     var jso = new JsonSerializerOptions(JsonSerializerDefaults.Web)
             {
@@ -13,13 +19,16 @@
                 WriteIndented = true
             };
 
-    var steps = JsonSerializer.Serialize(firstTour.Steps, jso);
+    var options = JsonSerializer.Serialize(firstTour, jso);
+
+    var steps = firstTour.Steps is null ? "[]" :
+                    JsonSerializer.Serialize(firstTour.Steps.Select(x=>x.Content as UToursTourStep), jso);
 }
 
 
 <script>
-    var tourOptions = null;
-    var tourSteps = @Html.Raw(steps);
+    var tourOptions = @Html.Raw(options);
+    tourOptions.steps = @Html.Raw(steps);
 
     const tg = new tourguide.TourGuideClient(tourOptions);
     tg.addSteps(tourSteps);

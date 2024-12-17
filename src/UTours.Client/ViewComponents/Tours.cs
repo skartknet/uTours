@@ -17,14 +17,14 @@ namespace UTours.Core.ViewComponents
         public IViewComponentResult Invoke()
         {
             var toursContainer = contentQuery.ContentAtRoot()
-                                             .FirstOrDefault(x => x.ContentType.Alias == UmbToursContainer.ModelTypeAlias);
+                                             .FirstOrDefault(x => x.ContentType.Alias == UToursToursContainer.ModelTypeAlias);
 
             if (toursContainer == null)
             {
                 return Content("No tours container found");
             }
 
-            var tours = toursContainer.ChildrenOfType(UmbTour.ModelTypeAlias)?.Cast<UmbTour>();
+            var tours = toursContainer.ChildrenOfType(UToursTour.ModelTypeAlias)?.Cast<UToursTour>();
 
             if (tours is null)
             {
