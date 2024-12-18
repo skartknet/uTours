@@ -2,11 +2,11 @@
 @using UTours.Core.ViewComponents
 @using Umbraco.Cms.Web.Common.PublishedModels
 
-@model IEnumerable<UToursTour>
+@model TourViewComponentModel
 
 @{
 
-    var firstTour = Model.FirstOrDefault();
+    var firstTour = Model.Tours.FirstOrDefault();
 
     if (firstTour == null)
     {
@@ -21,17 +21,15 @@
 
     var options = JsonSerializer.Serialize(firstTour, jso);
 
-    var steps = firstTour.Steps is null ? "[]" :
-                    JsonSerializer.Serialize(firstTour.Steps.Select(x=>x.Content as UToursTourStep), jso);
 }
 
 
 <script>
     var tourOptions = @Html.Raw(options);
-    tourOptions.steps = @Html.Raw(steps);
+    
 
     const tg = new tourguide.TourGuideClient(tourOptions);
-    tg.addSteps(tourSteps);
+    
     tg.start();
 
 </script>

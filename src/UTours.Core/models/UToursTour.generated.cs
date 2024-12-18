@@ -146,11 +146,11 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual int DialogWidth => this.Value<int>(_publishedValueFallback, "dialogWidth");
 
 		///<summary>
-		/// Dialog X: CSS z-index property of the tour dialog element.
+		/// Dialog Z: CSS z-index property of the tour dialog element. Defaults to 999.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.1.1+4f3dd04")]
-		[ImplementPropertyType("dialogX")]
-		public virtual int DialogX => this.Value<int>(_publishedValueFallback, "dialogX");
+		[ImplementPropertyType("dialogZ")]
+		public virtual int DialogZ => this.Value<int>(_publishedValueFallback, "dialogZ");
 
 		///<summary>
 		/// Exit On Click Outside: Exit the tour on when a user clicks outside the tour.
@@ -167,7 +167,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual bool ExitOnEscape => this.Value<bool>(_publishedValueFallback, "exitOnEscape");
 
 		///<summary>
-		/// Finish Label: Caption for the finish button displayed on the last tour guide step.
+		/// Finish Label: Caption for the finish button displayed on the last tour guide step. If empty, defaults to 'Finish'
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.1.1+4f3dd04")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -196,7 +196,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual bool KeyboardControls => this.Value<bool>(_publishedValueFallback, "keyboardControls");
 
 		///<summary>
-		/// Next Label: Caption for the next button.
+		/// Next Label: Caption for the next button. If empty, defaults to 'Next'
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.1.1+4f3dd04")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -204,7 +204,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string NextLabel => this.Value<string>(_publishedValueFallback, "nextLabel");
 
 		///<summary>
-		/// Prev. Label: Caption for the back button
+		/// Prev. Label: Caption for the back button. If empty, defaults to 'Prev'
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.1.1+4f3dd04")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -255,7 +255,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual bool ShowStepProgress => this.Value<bool>(_publishedValueFallback, "showStepProgress");
 
 		///<summary>
-		/// Step Dots Placement
+		/// Step Dots Placement: Whether to output the step dots in the tour dialog body or centered in the footer. Defaults to 'footer'
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.1.1+4f3dd04")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

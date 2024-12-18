@@ -4,34 +4,7 @@ namespace UTours.Core.ViewComponents
 {
     public class TourViewComponentModel
     {
-        public IList<TourViewModel> Tours { get; set; } = new List<TourViewModel>();
-
-        public static TourViewComponentModel MapFromPublishedContent(IEnumerable<UToursTour> tours)
-        {
-            var viewComponentModel = new TourViewComponentModel();
-            foreach (var tour in tours)
-            {
-                var tourViewModel = new TourViewModel();
-
-                if (tour.Steps is not null)
-                {
-                    foreach (var tourStep in tour.Steps)
-                    {
-                        var stepContent = tourStep.Content as UToursTourStep;
-
-                        tourViewModel.Steps.Add(new TourStepViewModel
-                        {
-                            //Title = stepContent.Title,
-                            Content = stepContent?.Content?.ToString() ?? ""
-                        });
-                    }
-                }
-
-                viewComponentModel.Tours.Add(tourViewModel);
-            }
-
-            return viewComponentModel;
-        }
+        public IList<TourViewModel> Tours { get; set; } = new List<TourViewModel>();    
     }
 
     public class TourViewModel
@@ -49,7 +22,7 @@ namespace UTours.Core.ViewComponents
         public int DialogMaxWidth { get; set; }
         public string? DialogPlacement { get; set; }
         public int DialogWidth { get; set; }
-        public int DialogX { get; set; }
+        public int DialogZ { get; set; }
         public bool ExitOnClickOutside { get; set; }
         public bool ExitOnEscape { get; set; }
         public string? FinishLabel { get; set; }
@@ -66,6 +39,7 @@ namespace UTours.Core.ViewComponents
         public bool ShowStepProgress { get; set; }
         public string? StepDotsPlacement { get; set; }        
         public string? TargetPadding { get; set; }
+        public bool Debug { get; set; }
 
         public IList<TourStepViewModel> Steps { get; set; } = new List<TourStepViewModel>();
     }
