@@ -1,17 +1,11 @@
 @using System.Text.Json
-@using UTours.Core.ViewComponents
 @using Umbraco.Cms.Web.Common.PublishedModels
+@using Umbraco.Community.UTours.Client.ViewComponents
 
-@model TourViewComponentModel
+@model TourViewModel
 
 @{
 
-    var firstTour = Model.Tours.FirstOrDefault();
-
-    if (firstTour == null)
-    {
-        return;
-    }
 
     var jso = new JsonSerializerOptions(JsonSerializerDefaults.Web)
             {
@@ -19,7 +13,7 @@
                 WriteIndented = true
             };
 
-    var options = JsonSerializer.Serialize(firstTour, jso);
+    var options = JsonSerializer.Serialize(Model, jso);
 
 }
 

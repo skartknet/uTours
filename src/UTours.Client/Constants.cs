@@ -1,4 +1,4 @@
-﻿namespace UTours.Client
+﻿namespace Umbraco.Community.UTours.Client
 {
     public class Constants
     {

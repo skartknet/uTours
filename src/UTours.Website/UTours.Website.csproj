@@ -3,13 +3,14 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>UTours.Website</RootNamespace>
+    <RootNamespace>Umbraco.Community.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="MyItemApiController.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Clean" Version="5.0.0" />
     <PackageReference Include="Umbraco.Cms" Version="15.1.1" />
   </ItemGroup>
 

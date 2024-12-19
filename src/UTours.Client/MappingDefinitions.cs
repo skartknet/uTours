@@ -3,12 +3,11 @@ using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Mapping;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Web.Common.PublishedModels;
+using Umbraco.Community.UTours.Client.ViewComponents;
 using Umbraco.Extensions;
-using UTours.Client;
 using UTours.Core.Extensions;
-using UTours.Core.ViewComponents;
 
-namespace UTours.Core
+namespace Umbraco.Community.UTours.Client
 {
     public class MappingsComposer : IComposer
     {
@@ -21,7 +20,7 @@ namespace UTours.Core
 
     public class TourMappingDefinitions : IMapDefinition
     {
-        
+
         public void DefineMaps(IUmbracoMapper mapper)
         {
             mapper.Define<UToursTour, TourViewModel>((source, context) => new TourViewModel(), Map);
@@ -75,11 +74,13 @@ namespace UTours.Core
                 target.Steps = source.Steps.Select(x =>
                 {
                     var content = (UToursTourStep)x.Content;
-                    var model = new TourStepViewModel();
-
-                    model.Group = content.Group ?? Enumerable.Empty<string>();
-                    model.Title = content.Title;
-                    model.Content = content.Content?.ToString() ?? "";
+                    var model = new TourStepViewModel
+                    {
+                        Group = content.Group ?? Enumerable.Empty<string>(),
+                        Title = content.Title,
+                        Content = content.Content?.ToString() ?? "",
+                        Target = content.Target.IfNullOrWhiteSpace(default)
+                    };
 
                     return model;
 

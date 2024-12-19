@@ -2,7 +2,7 @@
 using Umbraco.Cms.Api.Management.Controllers;
 using Umbraco.Cms.Api.Management.Routing;
 
-namespace UTours.Core.Controllers
+namespace Umbraco.Community.UTours.Client.Controllers
 {
     [VersionedApiBackOfficeRoute("UTours/item")]
     [ApiExplorerSettings(GroupName = "UTours API")]

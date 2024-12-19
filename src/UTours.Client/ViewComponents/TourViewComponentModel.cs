@@ -1,10 +1,10 @@
 ﻿using Umbraco.Cms.Web.Common.PublishedModels;
 
-namespace UTours.Core.ViewComponents
+namespace Umbraco.Community.UTours.Client.ViewComponents
 {
     public class TourViewComponentModel
     {
-        public IList<TourViewModel> Tours { get; set; } = new List<TourViewModel>();    
+        public IList<TourViewModel> Tours { get; set; } = new List<TourViewModel>();
     }
 
     public class TourViewModel
@@ -37,7 +37,7 @@ namespace UTours.Core.ViewComponents
         public bool ShowButtons { get; set; }
         public bool ShowStepDots { get; set; }
         public bool ShowStepProgress { get; set; }
-        public string? StepDotsPlacement { get; set; }        
+        public string? StepDotsPlacement { get; set; }
         public string? TargetPadding { get; set; }
         public bool Debug { get; set; }
 
@@ -49,6 +49,6 @@ namespace UTours.Core.ViewComponents
         public string? Title { get; set; }
         public string Content { get; set; } = "";
         public IEnumerable<string> Group { get; set; } = new List<string>();
-
+        public string? Target { get; internal set; }
     }
 }

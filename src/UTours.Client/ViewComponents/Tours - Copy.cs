@@ -6,18 +6,18 @@ using Umbraco.Extensions;
 
 namespace UTours.Core.ViewComponents
 {
-    public class Tours : ViewComponent
+    public class RunTourViewComponent: ViewComponent
     {
         private readonly IPublishedContentQuery contentQuery;
         private readonly IUmbracoMapper mapper;
 
-        public Tours(IPublishedContentQuery contentQuery, IUmbracoMapper umbracoMapper)
+        public RunTourViewComponent(IPublishedContentQuery contentQuery, IUmbracoMapper umbracoMapper)
         {
             this.contentQuery = contentQuery;
             this.mapper = umbracoMapper;
         }
 
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(UToursTour tour)
         {
             var toursContainer = contentQuery.ContentAtRoot()
                                              .FirstOrDefault(x => x.ContentType.Alias == UToursToursContainer.ModelTypeAlias)

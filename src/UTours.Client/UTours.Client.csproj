@@ -7,7 +7,12 @@
     <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
     <AssemblyName>Umbraco.Community.$(MSBuildProjectName)</AssemblyName>
 	  <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+	  <RootNamespace>Umbraco.Community.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ViewComponents\Tours - Copy.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
@@ -16,6 +21,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UTours.Core\UTours.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+    <Folder Include="Views\Components\RenderDependencies\" />
+    <Folder Include="Web\" />
   </ItemGroup>
 
 </Project>
