@@ -19,11 +19,9 @@
 
 
 <script>
-    var tourOptions = @Html.Raw(options);
-    
-
+    var tourOptions = @Html.Raw(options);    
     const tg = new tourguide.TourGuideClient(tourOptions);
     
-    tg.start();
+    tg.start('@Model.ID');
 
 </script>

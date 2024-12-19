@@ -9,6 +9,7 @@ namespace Umbraco.Community.UTours.Client.ViewComponents
 
     public class TourViewModel
     {
+        public string ID { get; set; } = "tour";
         public bool AutoScroll { get; set; }
         public int AutoScrollOffset { get; set; }
         public bool AutoScrollSmooth { get; set; }
@@ -48,7 +49,7 @@ namespace Umbraco.Community.UTours.Client.ViewComponents
     {
         public string? Title { get; set; }
         public string Content { get; set; } = "";
-        public IEnumerable<string> Group { get; set; } = new List<string>();
-        public string? Target { get; internal set; }
+        public string? Group { get; set; }
+        public string? Target { get; set; }
     }
 }

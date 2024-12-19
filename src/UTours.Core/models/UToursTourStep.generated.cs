@@ -58,14 +58,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Content => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "content");
 
 		///<summary>
-		/// Group
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.1.1+4f3dd04")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("group")]
-		public virtual global::System.Collections.Generic.IEnumerable<string> Group => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "group");
-
-		///<summary>
 		/// Target
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.1.1+4f3dd04")]

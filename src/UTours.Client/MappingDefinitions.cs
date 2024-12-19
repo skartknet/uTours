@@ -30,6 +30,7 @@ namespace Umbraco.Community.UTours.Client
         // Umbraco V15 doesn't have EditorModel notifications yet.
         private void Map(UToursTour source, TourViewModel target, MapperContext context)
         {
+            target.ID = source.Id.ToString();
             target.AutoScroll = source.AutoScroll;
             target.AutoScrollSmooth = source.AutoScrollSmooth;
             target.AutoScrollOffset = source.AutoScrollOffset.IfZero(20);
@@ -76,7 +77,7 @@ namespace Umbraco.Community.UTours.Client
                     var content = (UToursTourStep)x.Content;
                     var model = new TourStepViewModel
                     {
-                        Group = content.Group ?? Enumerable.Empty<string>(),
+                        Group = source.Id.ToString(),
                         Title = content.Title,
                         Content = content.Content?.ToString() ?? "",
                         Target = content.Target.IfNullOrWhiteSpace(default)
