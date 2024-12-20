@@ -1,0 +1,26 @@
+@using System.Text.Json
+@using Umbraco.Cms.Web.Common.PublishedModels
+@using Umbraco.Community.UTours.Client.ViewComponents
+
+@model TourViewModel
+
+@{
+    var jso = new JsonSerializerOptions(JsonSerializerDefaults.Web);
+}
+
+
+<script>    
+    @{
+        var options = JsonSerializer.Serialize(Model, jso);
+        <text>document.uTours[@Model.ID] = new tourguide.TourGuideClient(@Html.Raw(options));</text>
+
+        if (TempData.TryGetValue("startOnPageLoad", out var load) && load is bool startOnPageLoad && startOnPageLoad)
+        {
+            var startOnGroup = TempData["startOnGroup"];
+            <text>
+                    document.uTours[@Model.ID].start(@Html.Raw(JsonSerializer.Serialize(startOnGroup)));
+            </text>
+        }
+
+    }
+</script>

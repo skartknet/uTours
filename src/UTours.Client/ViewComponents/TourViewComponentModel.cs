@@ -42,6 +42,13 @@ namespace Umbraco.Community.UTours.Client.ViewComponents
         public string? TargetPadding { get; set; }
         public bool Debug { get; set; }
 
+
+        public IList<TourGroupViewModel> Groups { get; set; } = new List<TourGroupViewModel>();
+        public IList<TourStepViewModel> Steps { get; set; } = new List<TourStepViewModel>();
+    }
+
+    public class TourGroupViewModel
+    {
         public IList<TourStepViewModel> Steps { get; set; } = new List<TourStepViewModel>();
     }
 

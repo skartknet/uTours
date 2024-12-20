@@ -1,7 +1,7 @@
 ﻿using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Mapping;
-using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Cms.Core.Models.Blocks;
 using Umbraco.Cms.Web.Common.PublishedModels;
 using Umbraco.Community.UTours.Client.ViewComponents;
 using Umbraco.Extensions;
@@ -14,7 +14,8 @@ namespace Umbraco.Community.UTours.Client
         public void Compose(IUmbracoBuilder builder)
         {
             builder.WithCollectionBuilder<MapDefinitionCollectionBuilder>()
-                .Add<TourMappingDefinitions>();
+                .Add<TourMappingDefinitions>()
+                .Add<TourStepMappingDefinition>();
         }
     }
 
@@ -69,24 +70,73 @@ namespace Umbraco.Community.UTours.Client
                 target.Debug = (bool)debugMode;
             }
 
-
             if (source.Steps is not null)
             {
-                target.Steps = source.Steps.Select(x =>
+                foreach (var step in source.Steps.Where(s => s.Content.ContentType.Alias.Equals(UToursTourStep.ModelTypeAlias)))
                 {
-                    var content = (UToursTourStep)x.Content;
-                    var model = new TourStepViewModel
+                    var viewModel = context.Map<TourStepViewModel>(step);
+
+                    if (viewModel is not null)
                     {
-                        Group = source.Id.ToString(),
-                        Title = content.Title,
-                        Content = content.Content?.ToString() ?? "",
-                        Target = content.Target.IfNullOrWhiteSpace(default)
-                    };
+                        target.Steps.Add(viewModel);
+                    }
 
-                    return model;
+                }
 
-                }).ToList();
+                foreach (var group in source.Steps.Where(s => s.Content.ContentType.Alias.Equals(UToursStepsGroup.ModelTypeAlias)))
+                {
+                    var groupContent = (UToursStepsGroup)group.Content;
+                    if (groupContent.Steps is not null)
+                    {
+                        if (string.IsNullOrWhiteSpace(groupContent.GroupName))
+                        {
+                            context.Items.Add("groupID", groupContent.Key.ToString());
+                        }
+                        else
+                        {
+                            context.Items.Add("groupID", groupContent.GroupName);
+                        }
+
+
+                        foreach (var step in groupContent.Steps)
+                        {
+                            var viewModel = context.Map<TourStepViewModel>(step);
+
+                            if (viewModel is not null)
+                            {
+                                target.Steps.Add(viewModel);
+                            }
+
+                        }
+
+                    }
+                }
+
+
             }
+        }
+    }
+
+    public class TourStepMappingDefinition : IMapDefinition
+    {
+        public void DefineMaps(IUmbracoMapper mapper)
+        {
+            mapper.Define<BlockListItem<UToursTourStep>, TourStepViewModel>((source, context) => new TourStepViewModel(), Map);
+        }
+
+        private void Map(BlockListItem<UToursTourStep> source, TourStepViewModel target, MapperContext context)
+        {
+            var stepContent = source.Content;
+
+            if (context.Items.TryGetValue("groupID", out object? value))
+            {
+                var groupID = value as String;
+                target.Group = $"{groupID}";
+            }
+
+            target.Title = stepContent.Title;
+            target.Content = stepContent.Content?.ToString() ?? "";
+            target.Target = stepContent.Target.IfNullOrWhiteSpace(default);
         }
     }
 }

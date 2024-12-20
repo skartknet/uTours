@@ -263,7 +263,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string StepDotsPlacement => this.Value<string>(_publishedValueFallback, "stepDotsPlacement");
 
 		///<summary>
-		/// Tour Steps
+		/// Tour Steps: You can add steps directly to the Tour or create Groups to group them together.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.1.1+4f3dd04")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
