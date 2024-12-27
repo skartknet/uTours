@@ -204,6 +204,46 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string NextLabel => this.Value<string>(_publishedValueFallback, "nextLabel");
 
 		///<summary>
+		/// onAfterExit
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.1.1+4f3dd04")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("onAfterExit")]
+		public virtual string OnAfterExit => this.Value<string>(_publishedValueFallback, "onAfterExit");
+
+		///<summary>
+		/// onAfterStepChange
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.1.1+4f3dd04")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("onAfterStepChange")]
+		public virtual string OnAfterStepChange => this.Value<string>(_publishedValueFallback, "onAfterStepChange");
+
+		///<summary>
+		/// onBeforeExit
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.1.1+4f3dd04")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("onBeforeExit")]
+		public virtual string OnBeforeExit => this.Value<string>(_publishedValueFallback, "onBeforeExit");
+
+		///<summary>
+		/// onBeforeStepChange
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.1.1+4f3dd04")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("onBeforeStepChange")]
+		public virtual string OnBeforeStepChange => this.Value<string>(_publishedValueFallback, "onBeforeStepChange");
+
+		///<summary>
+		/// onFinish
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.1.1+4f3dd04")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("onFinish")]
+		public virtual string OnFinish => this.Value<string>(_publishedValueFallback, "onFinish");
+
+		///<summary>
 		/// Prev. Label: Caption for the back button. If empty, defaults to 'Prev'
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.1.1+4f3dd04")]
@@ -274,8 +314,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// Target Padding: The space around the highlighted step element in pixels.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.1.1+4f3dd04")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("targetPadding")]
-		public virtual string TargetPadding => this.Value<string>(_publishedValueFallback, "targetPadding");
+		public virtual int TargetPadding => this.Value<int>(_publishedValueFallback, "targetPadding");
 	}
 }

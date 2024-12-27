@@ -6,21 +6,32 @@
 
 @{
     var jso = new JsonSerializerOptions(JsonSerializerDefaults.Web);
+    var config = JsonSerializer.Serialize(Model, jso);
+    var startOnGroup = "";
+    var startOnPageLoad = false;
+
+
+    if (TempData.TryGetValue("startOnPageLoad", out var load) && load is bool)
+    {
+        startOnPageLoad = (bool)load;
+    }
+
+    if (TempData.TryGetValue("startOnGroup", out var group) && group is string)
+    {
+        startOnGroup = (string)group;
+    }
 }
 
 
-<script>    
-    @{
-        var options = JsonSerializer.Serialize(Model, jso);
-        <text>document.uTours[@Model.ID] = new tourguide.TourGuideClient(@Html.Raw(options));</text>
+<script>
 
-        if (TempData.TryGetValue("startOnPageLoad", out var load) && load is bool startOnPageLoad && startOnPageLoad)
-        {
-            var startOnGroup = TempData["startOnGroup"];
-            <text>
-                    document.uTours[@Model.ID].start(@Html.Raw(JsonSerializer.Serialize(startOnGroup)));
-            </text>
-        }
+    document.uTours.tours['@(Model.ID)'] = @Html.Raw(config);
 
+    @if (startOnPageLoad)
+    {
+        @: document.uTours.initClient(@Model.ID);
+        @: document.uTours.client.start(@startOnGroup);
     }
+
+
 </script>

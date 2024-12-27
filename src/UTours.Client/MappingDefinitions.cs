@@ -1,4 +1,5 @@
-﻿using Umbraco.Cms.Core.Composing;
+﻿using StackExchange.Profiling.Internal;
+using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Mapping;
 using Umbraco.Cms.Core.Models.Blocks;
@@ -31,13 +32,13 @@ namespace Umbraco.Community.UTours.Client
         // Umbraco V15 doesn't have EditorModel notifications yet.
         private void Map(UToursTour source, TourViewModel target, MapperContext context)
         {
-            target.ID = source.Id.ToString();
+            target.ID = source.Key.ToString();
             target.AutoScroll = source.AutoScroll;
             target.AutoScrollSmooth = source.AutoScrollSmooth;
             target.AutoScrollOffset = source.AutoScrollOffset.IfZero(20);
             target.BackdropAnimate = source.BackdropAnimate;
             target.BackdropClass = source.BackdropClass;
-            target.BackdropColor = source.BackdropColor;
+            target.BackdropColor = source.BackdropColor.IfNullOrWhiteSpace("rgba(20, 20, 21, 0.84)");
             target.CloseButton = source.CloseButton;
             target.CompleteOnFinish = source.CompleteOnFinish;
             target.DialogAnimate = source.DialogAnimate;
@@ -61,7 +62,14 @@ namespace Umbraco.Community.UTours.Client
             target.ShowStepDots = source.ShowStepDots;
             target.ShowStepProgress = source.ShowStepProgress;
             target.StepDotsPlacement = source.StepDotsPlacement.IfNullOrWhiteSpace(Constants.DefaultStepDotsPlacement);
-            target.TargetPadding = source.TargetPadding;
+            target.TargetPadding = source.TargetPadding.IfZero(10);
+
+            target.OnFinish = source.OnFinish;
+            target.OnBeforeExit = source.OnBeforeExit;
+            target.OnAfterExit = source.OnAfterExit;
+            target.OnBeforeStepChange = source.OnBeforeStepChange;
+            target.OnAfterStepChange = source.OnAfterStepChange;
+
 
 
             var debugMode = context.Items[nameof(UToursToursContainer.DebugMode)];
@@ -83,9 +91,9 @@ namespace Umbraco.Community.UTours.Client
 
                 }
 
-                foreach (var group in source.Steps.Where(s => s.Content.ContentType.Alias.Equals(UToursStepsGroup.ModelTypeAlias)))
+                foreach (var group in source.Steps.Where(s => s.Content.ContentType.Alias.Equals(UToursTourGroup.ModelTypeAlias)))
                 {
-                    var groupContent = (UToursStepsGroup)group.Content;
+                    var groupContent = (UToursTourGroup)group.Content;
                     if (groupContent.Steps is not null)
                     {
                         if (string.IsNullOrWhiteSpace(groupContent.GroupName))
@@ -114,6 +122,7 @@ namespace Umbraco.Community.UTours.Client
 
 
             }
+            
         }
     }
 

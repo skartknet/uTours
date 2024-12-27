@@ -1,32 +1,42 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
-    <AssemblyName>Umbraco.Community.$(MSBuildProjectName)</AssemblyName>
-	  <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-	  <RootNamespace>Umbraco.Community.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<StaticWebAssetBasePath>/</StaticWebAssetBasePath>
+		<AssemblyName>Umbraco.Community.$(MSBuildProjectName)</AssemblyName>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+		<RootNamespace>Umbraco.Community.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="ViewComponents\Tours - Copy.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="ViewComponents\Tours - Copy.cs" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Umbraco.Cms.Api.Management" Version="15.1.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Umbraco.Cms.Api.Management" Version="15.1.1" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\UTours.Core\UTours.Core.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\UTours.Core\UTours.Core.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Views\Components\RenderDependencies\" />
-    <Folder Include="Web\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Extensions\" />
+		<Folder Include="Views\Components\RenderDependencies\" />
+		<Folder Include="Web\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Update="wwwroot\assets\uTours.frontend.js">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<PropertyGroup>
+		<StaticWebAssetBasePath>/</StaticWebAssetBasePath>
+	</PropertyGroup>
 
 </Project>

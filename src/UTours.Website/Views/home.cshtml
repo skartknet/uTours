@@ -10,10 +10,13 @@
 
 @await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage))
 
+@foreach (var tour in Model.PageTours)
+{
+    
+<vc:load-tour tour="@tour" start-on-page-load="false"></vc:load-tour>
+}
 
-<vc:load-tour tour="@Model.PageTour" start-on-page-load="false" group="group 1"></vc:load-tour>
 
-@* 
 @if (Model.ContentRows != null)
 {
     <article>
@@ -26,13 +29,15 @@
         </div>
     </article>
 }
- *@
+
+
 
 <article>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <a onclick="document.uTours.startTour(@Model.PageTour.Id)">Start Tour</a>
+                <a onclick="document.uTours.startTour('77241703-6571-4a16-9f48-1e5469e38204')">Start First Tour</a>
+                <a onclick="document.uTours.startTour('3bd65e37-3e27-4e92-9fe7-544b2e98c6df')">Start Second Tour</a>
 
             </div>
         </div>

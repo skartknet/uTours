@@ -9,6 +9,7 @@ namespace Umbraco.Community.UTours.Client.ViewComponents
 
     public class TourViewModel
     {
+        #region Properties
         public string ID { get; set; } = "tour";
         public bool AutoScroll { get; set; }
         public int AutoScrollOffset { get; set; }
@@ -39,7 +40,21 @@ namespace Umbraco.Community.UTours.Client.ViewComponents
         public bool ShowStepDots { get; set; }
         public bool ShowStepProgress { get; set; }
         public string? StepDotsPlacement { get; set; }
-        public string? TargetPadding { get; set; }
+        public int TargetPadding { get; set; }
+
+        #endregion
+
+        #region Events
+
+        public string? OnFinish { get; set; }
+        public string? OnBeforeExit { get; set; }
+        public string? OnAfterExit { get; set; }
+        public string? OnBeforeStepChange { get; set; }
+        public string? OnAfterStepChange { get; set; }
+        
+
+        #endregion
+
         public bool Debug { get; set; }
 
 
