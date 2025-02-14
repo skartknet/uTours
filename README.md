@@ -30,5 +30,16 @@ For example, you can add a tour to the page that can be run by clicking on an an
 ```
 The previous code uses the helper function in the uTours object to start the tour.
 
-The `PageTour` is a Tour included in the page by using a Content Picker. uTours comes preconfigured with a Data Type that you can use in your pages.
+## Creating a Tour
+uTours creates a uTours root node in your content tree. You can create new tours under this node.
+
+![uTour node](/documentation/images/uToursNode.png)
+## Tour Picker
+
+The `PageTour` property in the previous example is a Tour included in the page by using a Content Picker. uTours comes preconfigured with a Data Type that you can use in your pages. Search for `[uTours] Tour Picker`
+
+## Tour Configuration
+uTours uses the [TourGuideJs](https://tourguidejs.com/) package to run the tours in the frontend. Take a look at the documentatiton there to understand how to configure them.
+
+Every settings in the JS package has an equivalent in the backoffice when you create a new Tour item.
 
