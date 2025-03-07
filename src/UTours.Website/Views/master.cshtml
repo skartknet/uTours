@@ -1,5 +1,6 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 
+
 @{
     Layout = null;
 }
@@ -19,7 +20,12 @@
     <link href="/clean-assets/css/highlightjs-copy.min.css" rel="stylesheet" asp-append-version="true" />
     <link href="/clean-assets/css/swiffy-slider.min.css" rel="stylesheet" asp-append-version="true" />
 
-    <vc:render-dependencies></vc:render-dependencies>
+    <script src="~/App_Plugins/uTours/assets/TourGuideJs/tour.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/App_Plugins/uTours/assets/uTours.frontend.js"></script>
+    <link rel="stylesheet" href="~/App_Plugins/uTours/assets/TourGuideJs/tour.min.css">
+      
+    
+    
 </head>
 <body>
     @await Html.CachedPartialAsync("~/Views/Partials/mainNavigation.cshtml", model: Model, cacheTimeout: TimeSpan.FromMinutes(60))

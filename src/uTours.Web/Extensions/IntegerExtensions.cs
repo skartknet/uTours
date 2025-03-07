@@ -1,4 +1,4 @@
-﻿namespace Umbraco.Community.UTours.Extensions
+﻿namespace Umbraco.Community.uTours.Web.Extensions
 {
     public static class IntegerExtensions
     {

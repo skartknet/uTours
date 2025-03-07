@@ -1,73 +1,50 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<Title>uTours</Title>
-		<Description>Umbraco package that serves as start kit to build tours in the frontend of a website.</Description>
-		<TargetFramework>net9.0</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-		<StaticWebAssetBasePath>/</StaticWebAssetBasePath>
-		<AssemblyName>Umbraco.Community.$(MSBuildProjectName)</AssemblyName>
-		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-		<RootNamespace>Umbraco.Community.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-		<PackageId>$(AssemblyName)</PackageId>
-		<PackageTags>umbraco package tour umbraco-marketplace</PackageTags>
-		<Version>1.0.0-alpha1</Version>
-		<Authors>Mario Lopez</Authors>
-		<PackageProjectUrl>https://github.com/skartknet/uTours</PackageProjectUrl>
-		<PackageIcon>uTours-icon.png</PackageIcon>
-		<RepositoryUrl>https://github.com/skartknet/uTours</RepositoryUrl>
-		<PackageReleaseNotes></PackageReleaseNotes>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageReadmeFile>readme.md</PackageReadmeFile>
-	</PropertyGroup>
+  <PropertyGroup>
+	  <Title>uTours</Title>
+	  <Description>Umbraco package that serves as start kit to build tours in the frontend of a website.</Description>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <RootNamespace>Umbraco.Community.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+	  <PackageId>$(AssemblyName)</PackageId>
+	  <AssemblyName>Umbraco.Community.$(MSBuildProjectName)</AssemblyName>
+	  <PackageTags>umbraco package tour umbraco-marketplace</PackageTags>
+	  <Version>1.0.0-alpha1</Version>
+	  <Authors>Mario Lopez</Authors>
+	  <PackageProjectUrl>https://github.com/skartknet/uTours</PackageProjectUrl>
+	  <PackageIcon>uTours-icon.png</PackageIcon>
+	  <RepositoryUrl>https://github.com/skartknet/uTours</RepositoryUrl>
+	  <PackageReleaseNotes></PackageReleaseNotes>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageReadmeFile>readme.md</PackageReadmeFile>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<Compile Remove="ViewComponents\Tours - Copy.cs" />
-	</ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\package.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
-		<PackageReference Include="Umbraco.Cms.Api.Management" Version="15.2.1" />
-		<PackageReference Include="Umbraco.Cms.Core" Version="15.2.1" />
-	</ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\uTours-icon.png" Link="uTours-icon.png">
+      <PackagePath></PackagePath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
 
-	<ItemGroup>
-		<Folder Include="Web\" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\uTours.Web\uTours.Web.csproj" />
+  </ItemGroup>
 
-	<ItemGroup>
-	  <None Include="..\..\uTours-icon.png" Link="uTours-icon.png">
-	    <PackagePath></PackagePath>
-	    <Pack>True</Pack>
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-
-	  </None>
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Include=".\README.nuget.md">
-			<Pack>True</Pack>
-			<PackagePath>README.md</PackagePath>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
-	
-	
-
-	<ItemGroup>
-	  <Content Update="wwwroot\App_Plugins\uTours\**">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>		  
-	  </Content>	  
-	</ItemGroup>
-
-	<ItemGroup>
-		<Content Update="assets\**">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<Pack>False</Pack>
-		</Content>
-	</ItemGroup>
-
+  <ItemGroup>
+    <None Update="README.nuget.md">
+      <PackagePath>README.md</PackagePath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
 
 </Project>

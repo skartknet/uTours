@@ -2,7 +2,7 @@
 
 @using Clean.Core.Models.ViewModels
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
-@using Umbraco.Community.UTours.ViewComponents
+
 
 @{
     Layout = "master.cshtml";
@@ -12,9 +12,10 @@
 
 @foreach (var tour in Model.PageTours)
 {
-    
-<vc:load-tour tour="@tour" start-on-page-load="false"></vc:load-tour>
+    <vc:load-tour tour="@tour" start-on-page-load="false" group="null"></vc:load-tour>
 }
+
+
 
 
 @if (Model.ContentRows != null)
@@ -36,8 +37,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <a onclick="document.uTours.startTour('77241703-6571-4a16-9f48-1e5469e38204')">Start First Tour</a>
-                <a onclick="document.uTours.startTour('3bd65e37-3e27-4e92-9fe7-544b2e98c6df')">Start Second Tour</a>
+                <a onclick="document.uTours.startTour('2eaf2256-7942-4831-95ba-977be883f728')">Start First Tour</a>
 
             </div>
         </div>

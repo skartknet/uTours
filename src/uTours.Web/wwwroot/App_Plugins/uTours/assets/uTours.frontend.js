@@ -18,5 +18,7 @@ document.uTours.initClient = function(tourID){
     var tour = document.uTours.tours[tourID];
     if (tour) {
         document.uTours.client = new tourguide.TourGuideClient(tour);
+    } else {
+        console.error('Tour not found');
     }
 };

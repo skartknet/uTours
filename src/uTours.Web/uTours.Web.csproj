@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<StaticWebAssetBasePath>/</StaticWebAssetBasePath>
+		<AssemblyName>Umbraco.Community.$(MSBuildProjectName)</AssemblyName>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+		<RootNamespace>Umbraco.Community.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+		
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="ViewComponents\Tours - Copy.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Umbraco.Cms.Api.Management" Version="15.2.2" />
+		<PackageReference Include="Umbraco.Cms.Core" Version="15.2.2" />
+	</ItemGroup>
+	
+	
+
+	<ItemGroup>
+	  <Content Update="wwwroot\App_Plugins\uTours\**">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>		  
+	  </Content>	  
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Update="assets\**">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Pack>False</Pack>
+		</Content>
+	</ItemGroup>
+
+
+</Project>
