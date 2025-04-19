@@ -6,8 +6,8 @@ on:
       - 'release/**'
 
 env:
-  SOLUTION: uTours.sln
-  PLUGIN_PROJECT: uTours\uTours.csproj  
+  SOLUTION: \src\uTours.sln
+  PLUGIN_PROJECT: \src\uTours\uTours.csproj  
   OUTPUT_PATH: ${{ github.workspace }}\.output
 
 jobs:
