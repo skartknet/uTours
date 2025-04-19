@@ -10,7 +10,7 @@
 		<PackageId>Umbraco.Community.uTours</PackageId>
 		<AssemblyName>Umbraco.Community.$(MSBuildProjectName)</AssemblyName>
 		<PackageTags>umbraco package tour umbraco-marketplace</PackageTags>
-		<Version>0.0.1-alpha1</Version>
+		<Version>0.0.1</Version>
 		<Authors>Mario Lopez</Authors>
 		<PackageProjectUrl>https://github.com/skartknet/uTours</PackageProjectUrl>
 		<PackageIcon>uTours-icon.png</PackageIcon>
