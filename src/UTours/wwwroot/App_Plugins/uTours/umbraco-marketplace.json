@@ -1,0 +1,27 @@
+{
+    "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json",
+    "Category": "Editor Tools",
+    "LicenseTypes": [
+      "Free"
+    ],
+    "PackageType": "Package",
+    "Title": "uTours",
+    "PackagesByAuthor": [
+      "Our.Iconic",
+      "Our.ConditionalDisplayers"
+    ],
+    "Tags": [
+      "tour",
+      "documentation",
+      "walkthrough",
+      "guide"
+    ],
+    "Description": " It implements a checkbox and dropdown datatype editors that allows to hide or display other properties in the same Document Type depending on the selected value.",
+    "AuthorDetails": {
+      "Name": "Mario Lopez",
+      "ImageUrl": "https://github.com/skartknet.png",
+      "SyncContributorsFromRepository": true
+    },
+    "DocumentationUrl": "https://github.com/skartknet/uTours/blob/775fc9583aa044efedabecf45f377726a9951563/README.md",
+    "LookingForContributors": true 
+  }
