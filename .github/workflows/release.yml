@@ -1,0 +1,78 @@
+name: Our.Umbraco.uTours - Release
+
+on:
+  push:
+    branches:
+      - 'release/**'
+
+env:
+  SOLUTION: uTours.sln
+  PLUGIN_PROJECT: uTours\uTours.csproj  
+  OUTPUT_PATH: ${{ github.workspace }}\.output
+
+jobs:
+  publish-nuget:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Cache NuGet packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.x'
+
+    - name: Get Release Version
+      id: package_version
+      uses: KageKirin/get-csproj-version@v0
+      with:
+        file: ${{ env.PLUGIN_PROJECT }}
+        regex: ^(?<major>0|[1-9]\d*)\.(?<minor>0|[1-9]\d*)\.(?<patch>0|[1-9]\d*)(?:-(?<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
+
+    - name: Check Pre-Release State
+      id: check_prerelease
+      run: |
+        if ('${{ steps.package_version.outputs.version }}' -match '^[0-9]+\.[0-9]+\.[0-9]+-.+$') {
+          echo "Pre-Release detected"                    
+          echo "prerelease=true" >> $GITHUB_OUTPUT
+        } else {
+          echo "Pre-Release NOT detected"            
+        else
+          echo "Pre-Release NOT detected"
+          echo "prerelease=false" >> $GITHUB_OUTPUT
+        }
+
+    - name: Restore NuGet packages
+      run: dotnet restore ${{ env.SOLUTION }} --no-cache
+
+
+    - name: Pack NuGet Package
+      run: dotnet pack ${{ env.PLUGIN_PROJECT }} --configuration Release --output ${{ env.OUTPUT_PATH }}
+
+    - name: Publish to NuGet      
+      run: dotnet nuget push "${{ env.OUTPUT_PATH }}\*.nupkg" --skip-duplicate --api-key "$env:apiKey" -s https://api.nuget.org/v3/index.json
+      env:
+        apiKey: ${{ secrets.NUGET_API_KEY }}
+
+    - name: Create Release Tag
+      uses: avakar/tag-and-release@v1
+      id: release
+      with:
+        tag_name: v${{ steps.package_version.outputs.version }}
+        prerelease: ${{ steps.check_prerelease.outputs.prerelease }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Release Information
+      run: |
+        echo Release Id: ${{ steps.release.outputs.id }}
+        echo Upload URL: "${{ steps.release.outputs.upload_url }}"
+        echo Release URL: "${{ steps.release.outputs.html_url }}"

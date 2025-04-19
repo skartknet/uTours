@@ -6,7 +6,7 @@ namespace Umbraco.Community.uTours.Web.ViewComponents
     public class LoadTourViewComponent : ViewComponent
     {
 
-        public IViewComponentResult Invoke(IPublishedContent tour, bool startOnPageLoad = false, string? group = null)
+        public IViewComponentResult Invoke(IPublishedContent tour, bool startOnPageLoad = false)
         {
 
 
@@ -18,11 +18,7 @@ namespace Umbraco.Community.uTours.Web.ViewComponents
             var tourViewModel = new TourViewModel(tour);
 
             TempData["startOnPageLoad"] = startOnPageLoad;
-
-            if (group is not null)
-            {
-                TempData["startOnGroup"] = group;
-            }
+         
 
             return View(tourViewModel);
         }

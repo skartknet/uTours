@@ -1,0 +1,47 @@
+name: Our.Umbraco.uTours - CI
+
+on:
+  pull_request:
+
+env:
+  SOLUTION: uTours.sln
+  OUTPUT_PATH: ${{ github.workspace }}\.output
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 # Fetch all history for all tags and branches            
+      
+        
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v4
+
+      with:
+        dotnet-version: '9.x'
+        
+
+    - name: Restore NuGet packages
+      run: dotnet restore ${{ env.SOLUTION }} --no-cache
+
+
+    - name: Build solution
+      run: dotnet publish ${{ env.SOLUTION }} --configuration Release --output ${{ env.OUTPUT_PATH }}
+
+    - name: Cache NuGet packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+
+
+    - name: Upload NuGet artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: nuget
+        path: ${{ env.OUTPUT_PATH }}

@@ -396,3 +396,9 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+
+**/umbraco/Data/
+**/umbraco/TEMP/
+
+src/test/

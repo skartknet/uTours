@@ -7,7 +7,7 @@
 @{
     var jso = new JsonSerializerOptions(JsonSerializerDefaults.Web);
     var config = JsonSerializer.Serialize(Model, jso);
-    var startOnGroup = "";
+
     var startOnPageLoad = false;
 
 
@@ -16,10 +16,6 @@
         startOnPageLoad = (bool)load;
     }
 
-    if (TempData.TryGetValue("startOnGroup", out var group) && group is string)
-    {
-        startOnGroup = (string)group;
-    }
 }
 
 
@@ -30,7 +26,7 @@
     @if (startOnPageLoad)
     {
         @: document.uTours.initClient(@Model.ID);
-        @: document.uTours.client.start(@startOnGroup);
+        @: document.uTours.client.start();
     }
 
 
