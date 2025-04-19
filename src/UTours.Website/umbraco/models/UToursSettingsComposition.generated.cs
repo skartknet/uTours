@@ -18,9 +18,9 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	// Mixin Content Type with alias "uToursTour1"
+	// Mixin Content Type with alias "uToursSettingsComposition"
 	/// <summary>[uTours] Settings Composition</summary>
-	public partial interface IUToursTour1 : IPublishedContent
+	public partial interface IUToursSettingsComposition : IPublishedContent
 	{
 		/// <summary>Auto Scroll</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
@@ -179,13 +179,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 	}
 
 	/// <summary>[uTours] Settings Composition</summary>
-	[PublishedModel("uToursTour1")]
-	public partial class UToursTour1 : PublishedContentModel, IUToursTour1
+	[PublishedModel("uToursSettingsComposition")]
+	public partial class UToursSettingsComposition : PublishedContentModel, IUToursSettingsComposition
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public new const string ModelTypeAlias = "uToursTour1";
+		public new const string ModelTypeAlias = "uToursSettingsComposition";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
@@ -194,14 +194,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(contentTypeCache, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<UToursTour1, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<UToursSettingsComposition, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(contentTypeCache), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public UToursTour1(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public UToursSettingsComposition(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -218,7 +218,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Auto Scroll</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static bool GetAutoScroll(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "autoScroll");
+		public static bool GetAutoScroll(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "autoScroll");
 
 		///<summary>
 		/// Auto Scroll Offset: When auto scrolling to an element, set the surrounding margin that should be scrolled into view. Defined in pixels.
@@ -229,7 +229,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Auto Scroll Offset</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static int GetAutoScrollOffset(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<int>(publishedValueFallback, "autoScrollOffset");
+		public static int GetAutoScrollOffset(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<int>(publishedValueFallback, "autoScrollOffset");
 
 		///<summary>
 		/// Auto Scroll Smooth: Auto scroll browser window to the target element.
@@ -240,7 +240,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Auto Scroll Smooth</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static bool GetAutoScrollSmooth(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "autoScrollSmooth");
+		public static bool GetAutoScrollSmooth(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "autoScrollSmooth");
 
 		///<summary>
 		/// Backdrop Animate: Apply CSS transition class on backdrop to enable smooth resizing and repositioning on step change.
@@ -251,7 +251,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Backdrop Animate</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static bool GetBackdropAnimate(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "backdropAnimate");
+		public static bool GetBackdropAnimate(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "backdropAnimate");
 
 		///<summary>
 		/// Backdrop Class: Add a custom CSS class to the backdrop element.
@@ -264,7 +264,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Static getter for Backdrop Class</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetBackdropClass(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "backdropClass");
+		public static string GetBackdropClass(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "backdropClass");
 
 		///<summary>
 		/// Backdrop Color: Use a custom color for the tour backdrop.
@@ -277,7 +277,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Static getter for Backdrop Color</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetBackdropColor(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "backdropColor");
+		public static string GetBackdropColor(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "backdropColor");
 
 		///<summary>
 		/// Show Close Button: Display the close button in the top-right corner of the tour dialog.
@@ -288,7 +288,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Show Close Button</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static bool GetCloseButton(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "closeButton");
+		public static bool GetCloseButton(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "closeButton");
 
 		///<summary>
 		/// Complete on Finish: Use TourGuide JS' in-built handler for detecting when a user has completed a tour using localStorage.
@@ -299,7 +299,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Complete on Finish</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static bool GetCompleteOnFinish(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "completeOnFinish");
+		public static bool GetCompleteOnFinish(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "completeOnFinish");
 
 		///<summary>
 		/// Dialog Animate: Apply CSS transition class on the tour guide element to enable smooth resizing and repositioning on step change.
@@ -312,7 +312,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Static getter for Dialog Animate</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetDialogAnimate(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "dialogAnimate");
+		public static string GetDialogAnimate(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "dialogAnimate");
 
 		///<summary>
 		/// Dialog Class: Add a custom CSS class to the tour dialog element.
@@ -325,7 +325,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Static getter for Dialog Class</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetDialogClass(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "dialogClass");
+		public static string GetDialogClass(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "dialogClass");
 
 		///<summary>
 		/// Dialog Max. Width: Maximum width for the tour guide dialog.
@@ -336,7 +336,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Dialog Max. Width</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static int GetDialogMaxWidth(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<int>(publishedValueFallback, "dialogMaxWidth");
+		public static int GetDialogMaxWidth(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<int>(publishedValueFallback, "dialogMaxWidth");
 
 		///<summary>
 		/// Dialog Placement: Floating ui placement for the tour guide dialog.
@@ -349,7 +349,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Static getter for Dialog Placement</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetDialogPlacement(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "dialogPlacement");
+		public static string GetDialogPlacement(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "dialogPlacement");
 
 		///<summary>
 		/// Dialog Width: Set a strict width for the dialog in px. Recommended if loading images in the content to maintain precise positioning.
@@ -360,7 +360,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Dialog Width</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static int GetDialogWidth(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<int>(publishedValueFallback, "dialogWidth");
+		public static int GetDialogWidth(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<int>(publishedValueFallback, "dialogWidth");
 
 		///<summary>
 		/// Dialog Z: CSS z-index property of the tour dialog element. Defaults to 999.
@@ -371,7 +371,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Dialog Z</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static int GetDialogZ(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<int>(publishedValueFallback, "dialogZ");
+		public static int GetDialogZ(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<int>(publishedValueFallback, "dialogZ");
 
 		///<summary>
 		/// Exit On Click Outside: Exit the tour on when a user clicks outside the tour.
@@ -382,7 +382,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Exit On Click Outside</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static bool GetExitOnClickOutside(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "exitOnClickOutside");
+		public static bool GetExitOnClickOutside(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "exitOnClickOutside");
 
 		///<summary>
 		/// Exit on Escape: Exit the tour on escape key press. Can be used in conjunction with keyboardControls.
@@ -393,7 +393,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Exit on Escape</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static bool GetExitOnEscape(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "exitOnEscape");
+		public static bool GetExitOnEscape(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "exitOnEscape");
 
 		///<summary>
 		/// Finish Label: Caption for the finish button displayed on the last tour guide step. If empty, defaults to 'Finish'
@@ -406,7 +406,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Static getter for Finish Label</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetFinishLabel(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "finishLabel");
+		public static string GetFinishLabel(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "finishLabel");
 
 		///<summary>
 		/// Hide Back Button
@@ -417,7 +417,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Hide Back Button</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static bool GetHideBackButton(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "hideBackButton");
+		public static bool GetHideBackButton(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "hideBackButton");
 
 		///<summary>
 		/// Hide Next Button
@@ -428,7 +428,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Hide Next Button</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static bool GetHideNext(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "hideNext");
+		public static bool GetHideNext(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "hideNext");
 
 		///<summary>
 		/// Keyboard Controls: Support keyboard controls for forwards & backwards arrows as well as escape key.
@@ -439,7 +439,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Keyboard Controls</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static bool GetKeyboardControls(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "keyboardControls");
+		public static bool GetKeyboardControls(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "keyboardControls");
 
 		///<summary>
 		/// Next Label: Caption for the next button. If empty, defaults to 'Next'
@@ -452,7 +452,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Static getter for Next Label</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetNextLabel(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "nextLabel");
+		public static string GetNextLabel(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "nextLabel");
 
 		///<summary>
 		/// onAfterExit
@@ -465,7 +465,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Static getter for onAfterExit</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetOnAfterExit(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "onAfterExit");
+		public static string GetOnAfterExit(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "onAfterExit");
 
 		///<summary>
 		/// onAfterStepChange
@@ -478,7 +478,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Static getter for onAfterStepChange</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetOnAfterStepChange(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "onAfterStepChange");
+		public static string GetOnAfterStepChange(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "onAfterStepChange");
 
 		///<summary>
 		/// onBeforeExit
@@ -491,7 +491,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Static getter for onBeforeExit</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetOnBeforeExit(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "onBeforeExit");
+		public static string GetOnBeforeExit(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "onBeforeExit");
 
 		///<summary>
 		/// onBeforeStepChange
@@ -504,7 +504,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Static getter for onBeforeStepChange</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetOnBeforeStepChange(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "onBeforeStepChange");
+		public static string GetOnBeforeStepChange(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "onBeforeStepChange");
 
 		///<summary>
 		/// onFinish
@@ -517,7 +517,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Static getter for onFinish</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetOnFinish(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "onFinish");
+		public static string GetOnFinish(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "onFinish");
 
 		///<summary>
 		/// Prev. Label: Caption for the back button. If empty, defaults to 'Prev'
@@ -530,7 +530,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Static getter for Prev. Label</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetPrevLabel(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "prevLabel");
+		public static string GetPrevLabel(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "prevLabel");
 
 		///<summary>
 		/// Progress Bar: Show progress bar under dialog header - pass a colour string to enable
@@ -543,7 +543,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Static getter for Progress Bar</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetProgressBar(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "progressBar");
+		public static string GetProgressBar(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "progressBar");
 
 		///<summary>
 		/// Propagate Events: Allow the user to click elements within the target highlight area.
@@ -554,7 +554,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Propagate Events</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static bool GetPropagateEvents(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "propagateEvents");
+		public static bool GetPropagateEvents(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "propagateEvents");
 
 		///<summary>
 		/// Remember Step: Continue the tour from last active step when re-opening.
@@ -565,7 +565,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Remember Step</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static bool GetRememberStep(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "rememberStep");
+		public static bool GetRememberStep(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "rememberStep");
 
 		///<summary>
 		/// Show Buttons: Display the next and prev buttons. Can be used in conjunction with hideNext & hidePrev.
@@ -576,7 +576,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Show Buttons</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static bool GetShowButtons(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "showButtons");
+		public static bool GetShowButtons(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "showButtons");
 
 		///<summary>
 		/// Show Step Dots: Show the tour progress marker dots.
@@ -587,7 +587,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Show Step Dots</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static bool GetShowStepDots(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "showStepDots");
+		public static bool GetShowStepDots(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "showStepDots");
 
 		///<summary>
 		/// Show Step Progress: Show `1/5` human-readable step progress in the tour dialog footer.
@@ -598,7 +598,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Show Step Progress</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static bool GetShowStepProgress(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "showStepProgress");
+		public static bool GetShowStepProgress(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "showStepProgress");
 
 		///<summary>
 		/// Step Dots Placement: Whether to output the step dots in the tour dialog body or centered in the footer. Defaults to 'footer'
@@ -611,7 +611,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Static getter for Step Dots Placement</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetStepDotsPlacement(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "stepDotsPlacement");
+		public static string GetStepDotsPlacement(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "stepDotsPlacement");
 
 		///<summary>
 		/// Target Padding: The space around the highlighted step element in pixels.
@@ -622,6 +622,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 		/// <summary>Static getter for Target Padding</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
-		public static int GetTargetPadding(IUToursTour1 that, IPublishedValueFallback publishedValueFallback) => that.Value<int>(publishedValueFallback, "targetPadding");
+		public static int GetTargetPadding(IUToursSettingsComposition that, IPublishedValueFallback publishedValueFallback) => that.Value<int>(publishedValueFallback, "targetPadding");
 	}
 }
