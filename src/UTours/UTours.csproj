@@ -16,7 +16,7 @@
 		<PackageIcon>uTours-icon.png</PackageIcon>
 		<RepositoryUrl>https://github.com/skartknet/uTours</RepositoryUrl>
 		<PackageReleaseNotes></PackageReleaseNotes>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<StaticWebAssetBasePath>/</StaticWebAssetBasePath>
@@ -24,6 +24,7 @@
 		<IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<RepositoryType>git</RepositoryType>
+		<StaticWebAssetsEnabled>False</StaticWebAssetsEnabled>
 	</PropertyGroup>
 
 	<ItemGroup>

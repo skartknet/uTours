@@ -10,6 +10,9 @@ env:
   PLUGIN_PROJECT: src\uTours\uTours.csproj  
   OUTPUT_PATH: ${{ github.workspace }}\.output
 
+permissions:
+  contents: write
+  
 jobs:
   publish-nuget:
     runs-on: windows-latest
