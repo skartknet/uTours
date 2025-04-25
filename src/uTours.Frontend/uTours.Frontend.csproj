@@ -1,13 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
 		<Title>uTours</Title>
-		<Description>Umbraco package that serves as start kit to build tours in the frontend of a website.</Description>
 		<TargetFramework>net9.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<RootNamespace>Umbraco.Community.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-		<PackageId>Umbraco.Community.uTours</PackageId>
+		<PackageId>Umbraco.Community.uTours.Frontend</PackageId>
 		<AssemblyName>Umbraco.Community.$(MSBuildProjectName)</AssemblyName>
 		<PackageTags>umbraco package tour umbraco-marketplace</PackageTags>
 		<Version>0.0.2</Version>
@@ -22,50 +21,30 @@
 		<StaticWebAssetBasePath>/</StaticWebAssetBasePath>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 		<IncludeSymbols>true</IncludeSymbols>
-        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<RepositoryType>git</RepositoryType>
 		<StaticWebAssetsEnabled>False</StaticWebAssetsEnabled>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<EmbeddedResource Include="Migrations\package.zip">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</EmbeddedResource>
-	</ItemGroup>
-
-	<ItemGroup>
+  <ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Umbraco.Cms.Api.Management" Version="[15.0.0,)" />
 		<PackageReference Include="Umbraco.Cms.Core" Version="[15.0.0,)" />
 	</ItemGroup>
 
-
-
-	<ItemGroup>
-		<Content Update="wwwroot\App_Plugins\uTours\**">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
-
-	<ItemGroup>
-		<Folder Include="Views\Components\UtoursDependencies\" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Include="..\..\uTours-icon.png" Link="uTours-icon.png">
-			<PackagePath></PackagePath>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<Pack>True</Pack>
-		</None>
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Update="README.nuget.md">
-			<PackagePath>README.md</PackagePath>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<Pack>True</Pack>
-		</None>
-	</ItemGroup>
-
+  <ItemGroup>
+    <Content Update="client\package-lock.json">
+      <Pack>False</Pack>
+    </Content>
+    <Content Update="client\package.json">
+      <Pack>False</Pack>
+    </Content>
+    <Content Update="client\public\umbraco-package.json">
+      <Pack>False</Pack>
+    </Content>
+    <Content Update="client\tsconfig.json">
+      <Pack>False</Pack>
+    </Content>
+  </ItemGroup>
 
 </Project>

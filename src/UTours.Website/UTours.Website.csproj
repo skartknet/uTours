@@ -24,6 +24,11 @@
     <Folder Include="umbraco\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\uTours.Frontend\uTours.Frontend.csproj" />
+    <ProjectReference Include="..\uTours\uTours.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <!-- Razor files are needed for the backoffice to work correctly -->
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
