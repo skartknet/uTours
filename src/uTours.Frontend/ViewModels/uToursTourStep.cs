@@ -4,7 +4,7 @@ namespace Umbraco.Community.uTours.Frontend.ViewModels
 {
     public class uToursTourStep
     {
-        public int Id { get; set; }
+        public Guid? Id { get; set; } = null;
         public string? Content { get; set; }
         public string? Title { get; set; }
 
