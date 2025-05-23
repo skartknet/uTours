@@ -1,20 +1,32 @@
 {
-  "name": "assets",
-  "private": true,
+  "name": "utours-editor",
+  "description": "Webcomponent utours-editor following open-wc recommendations",
+  "license": "MIT",
+  "author": "utours-editor",
   "version": "0.0.0",
   "type": "module",
+  "main": "wwwroot/App_Plugins/uTours/index.js",
+  "module": "wwwroot/App_Plugins/uTours/index.js",
+  "exports": {
+    ".": "./wwwroot/App_Plugins/uTours/index.js",
+    "./utours-editor.js": "./wwwroot/App_Plugins/uTours/utours-editor.js"
+  },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "watch": "vite build --watch"
+    "analyze": "cem analyze --litelement",
+    "start": "vite serve",
+    "build": "vite build && npm run analyze --",
+    "prepublish": "vite build && npm run analyze --"
   },
   "dependencies": {
-    "lit": "^3.1.0"
+    "lit": "^3.1.4"
   },
   "devDependencies": {
-    "@umbraco-cms/backoffice": "^14.0.0",
-    "typescript": "^5.2.2",
-    "vite": "^5.2.8"
-  }
+    "@custom-elements-manifest/analyzer": "^0.10.3",
+    "@web/dev-server": "^0.4.6",
+    "concurrently": "^8.2.2",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.3",
+    "vite": "^6.3.5"
+  },
+  "customElements": "custom-elements.json"
 }

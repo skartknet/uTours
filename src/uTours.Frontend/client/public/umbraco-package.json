@@ -1,7 +1,0 @@
-{
-    "$schema": "../umbraco-package-schema.json",
-    "name": "uTours",
-    "id": "Umbraco.Community.uTours",
-    "version": "1.0.0-alpha1",
-    "allowTelemetry": true
-}

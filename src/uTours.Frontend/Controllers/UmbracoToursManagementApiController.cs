@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using StackExchange.Profiling.Internal;
-using System.ComponentModel;
-using System.Text.Json;
 using Umbraco.Cms.Api.Management.Controllers;
 using Umbraco.Cms.Api.Management.Routing;
 using Umbraco.Cms.Core;
@@ -12,6 +9,7 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Serialization;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Strings;
+using Umbraco.Cms.Web.Common.Authorization;
 using Umbraco.Community.uTours.Frontend.Enums;
 using Umbraco.Community.uTours.Frontend.Models;
 using Umbraco.Community.uTours.Frontend.ViewModels;
@@ -22,6 +20,7 @@ namespace Umbraco.Community.uTours.Frontend.Controllers
 {
     [VersionedApiBackOfficeRoute("utours")]
     [ApiExplorerSettings(GroupName = "UTours API")]
+    [Authorize(Policy = AuthorizationPolicies.BackOfficeAccess)]
     public class UToursManagementApiController : ManagementApiControllerBase
     {
         private readonly IPublishedContentQuery publishedContentQuery;

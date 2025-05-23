@@ -29,6 +29,10 @@
     <ProjectReference Include="..\uTours\uTours.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Watch Remove="\umbraco\Data\**\*" />
+  </ItemGroup>
+
   <PropertyGroup>
     <!-- Razor files are needed for the backoffice to work correctly -->
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
