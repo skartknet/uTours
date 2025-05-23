@@ -5,12 +5,6 @@
   "author": "utours-editor",
   "version": "0.0.0",
   "type": "module",
-  "main": "wwwroot/App_Plugins/uTours/index.js",
-  "module": "wwwroot/App_Plugins/uTours/index.js",
-  "exports": {
-    ".": "./wwwroot/App_Plugins/uTours/index.js",
-    "./utours-editor.js": "./wwwroot/App_Plugins/uTours/utours-editor.js"
-  },
   "scripts": {
     "analyze": "cem analyze --litelement",
     "start": "vite serve",

@@ -1,1 +1,3 @@
-export { UToursEditor } from './UToursEditor.js';
+import { UToursEditor } from './UToursEditor.js';
+
+window.customElements.define('utours-editor', UToursEditor);

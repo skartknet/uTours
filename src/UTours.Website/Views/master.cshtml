@@ -21,7 +21,7 @@
 
   <vc:utours-dependencies></vc:utours-dependencies>
     
-
+    <script src="/App_Plugins/uTours/utours-editor.es.js" type="module"></script>
 </head>
 <body>
     @await Html.CachedPartialAsync("~/Views/Partials/mainNavigation.cshtml", model: Model, cacheTimeout: TimeSpan.FromMinutes(60))
@@ -39,9 +39,6 @@
     <script src="/clean-assets/js/initHighlight.js" asp-append-version="true"></script>
     <script src="/clean-assets/js/swiffy-slider.min.js" asp-append-version="true"></script>
 
-   
-    <partial name="uTourEditor"/>
-
-
+   <utours-editor></utours-editor>
 </body>
 </html>
