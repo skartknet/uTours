@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="Clean" Version="5.0.0" />
-    <PackageReference Include="Umbraco.Cms" Version="15.3.1" />
+    <PackageReference Include="Umbraco.Cms" Version="16.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,18 +20,13 @@
     <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="umbraco\" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\uTours.Frontend\uTours.Frontend.csproj" />
     <ProjectReference Include="..\uTours\uTours.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Watch Remove="\umbraco\Data\**\*" />
-  </ItemGroup>
+
 
   <PropertyGroup>
     <!-- Razor files are needed for the backoffice to work correctly -->

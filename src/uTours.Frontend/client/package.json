@@ -3,19 +3,27 @@
   "description": "Webcomponent utours-editor following open-wc recommendations",
   "license": "MIT",
   "author": "utours-editor",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "analyze": "cem analyze --litelement",
     "start": "vite serve",
     "build": "vite build && npm run analyze --",
+    "build:watch": "concurrently \"vite build --watch\" \"npm run analyze:watch\"",
+    "analyze:watch": "cem analyze --litelement --watch",
+    "dev": "vite build --watch",
     "prepublish": "vite build && npm run analyze --"
   },
   "dependencies": {
-    "lit": "^3.1.4"
+    "@umbraco-ui/uui": "^1.13.0",
+    "@umbraco-ui/uui-css": "^1.13.0"
+  },
+  "peerDependencies": {
+    "@umbraco-cms/backoffice": "^16.0.0"
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.10.3",
+    "@umbraco-cms/backoffice": "^16.0.0",
     "@web/dev-server": "^0.4.6",
     "concurrently": "^8.2.2",
     "tslib": "^2.6.3",

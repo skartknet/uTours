@@ -11,7 +11,6 @@ using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Strings;
 using Umbraco.Cms.Web.Common.Authorization;
 using Umbraco.Community.uTours.Frontend.Enums;
-using Umbraco.Community.uTours.Frontend.Models;
 using Umbraco.Community.uTours.Frontend.ViewModels;
 using Umbraco.Extensions;
 
@@ -83,8 +82,9 @@ namespace Umbraco.Community.uTours.Frontend.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult CreateTour([FromBody] string name)
+        public IActionResult Create([FromBody] string name)
         {
+
             //TODO: support different cultures
             var container = GetToursContainer();
             if (container == null)
@@ -97,21 +97,47 @@ namespace Umbraco.Community.uTours.Frontend.Controllers
 
             var containerUdi = Udi.Create(Umbraco.Cms.Core.Constants.UdiEntityType.Document, container.Key);
 
-            var tourContent = contentService.CreateAndSave(name, container.Id, Constants.DocTypeAlias.Tour);
+            var tourContent = contentService.Create(name, container.Id, Constants.DocTypeAlias.Tour);
+
+            var stepsValue = EmptyStepsValue();
+            tourContent.SetValue("steps", stepsValue);
 
             if (tourContent == null)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error creating tour.");
             }
 
-            contentService.Publish(tourContent, ["*"]);
+            var result = contentService.Save(tourContent);
+            if (!result.Success)
+            {
+                return OperationStatusResult(UToursOperationStatus.ModelError,
+                            builder => BadRequest(builder.WithTitle("Tour couldn't be saved")
+                                                        .Build()));
+            }
 
-            return Ok();
+            var publishResult = contentService.Publish(tourContent, ["*"]);
+
+
+
+            if (!publishResult.Success)
+            {
+                return OperationStatusResult(UToursOperationStatus.ModelError,
+                          builder => BadRequest(builder.WithTitle("Tour couldn't be published")
+                                                      .Build()));
+            }
+
+            var model = new uToursTour
+            {
+                Id = tourContent.Key,
+                Name = tourContent.Name
+            };
+
+            return Ok(model);
         }
 
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult UpdateTour(uToursTour tour)
+        public IActionResult Update(uToursTour tour)
         {
             var existingTour = contentService.GetById(tour.Id);
             if (existingTour == null)
@@ -127,43 +153,11 @@ namespace Umbraco.Community.uTours.Frontend.Controllers
             var existingSteps = existingTour.GetValue<BlockListModel>("steps") ??
                                     new BlockListModel(new List<BlockListItem>());
 
-            var stepContentType = contentTypeService.Get(Constants.DocTypeAlias.TourStep);
-
-            if (stepContentType == null)
-            {
-                return NotFound("Tour step content type not found.");
-            }
 
 
-            var layoutItems = new List<BlockListLayoutItem>();
-            var contentItems = new List<BlockListElementData>();
-            var settingsItems = new List<BlockListElementData>();
+            var propertyValue = tour.Steps.ToBlockListValue(serializer, contentTypeService);
 
 
-            foreach (var step in tour.Steps)
-            {
-                var contentGuid = step.Id == null ? Guid.NewGuid() : step.Id.Value;
-
-                layoutItems.Add(new BlockListLayoutItem(contentGuid, default(Guid)));
-
-                contentItems.Add(new BlockListElementData(stepContentType.Key, contentGuid)
-                {
-                    Data = new Dictionary<string, object?>{
-                        {"content", step.Content },
-                        {"title", step.Title},
-                        {"target", step.Target}
-                    }
-                });
-            }
-
-            var blockListData = new BlocklistData(new BlockListLayout(layoutItems.ToArray()),
-                                                contentItems.ToArray(),
-                                                settingsItems.ToArray());
-
-
-            var propertyValue = serializer.Serialize(blockListData);
-            
-            
             existingTour.SetValue("steps", propertyValue);
             existingTour.SetValue("name", tour.Name);
 
@@ -175,10 +169,35 @@ namespace Umbraco.Community.uTours.Frontend.Controllers
             return Ok();
         }
 
+        [HttpDelete("{id:guid}")]
+        public IActionResult Delete(Guid id)
+        {
+            var existingTour = contentService.GetById(id);
+            if(existingTour == null)
+            {
+                return OperationStatusResult(UToursOperationStatus.NotFound,
+                            builder => NotFound(builder.WithTitle("Operation couldn't be processed")
+                                                        .WithDetail("Tour not found.")
+                                                        .Build()));
+            }
+
+            contentService.Delete(existingTour);
+
+            return Ok();
+        }
+
         private IPublishedContent? GetToursContainer()
         {
             var container = publishedContentQuery!.ContentAtRoot().SingleOrDefault(x => x.ContentType.Alias == Constants.DocTypeAlias.ToursContainer);
             return container;
+        }
+
+        private string? EmptyStepsValue()
+        {
+            var steps = new List<uToursTourStep>();
+            var value = steps.ToBlockListValue(serializer, contentTypeService);
+
+            return value;
         }
     }
 }

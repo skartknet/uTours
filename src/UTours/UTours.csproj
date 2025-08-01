@@ -35,8 +35,8 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
-		<PackageReference Include="Umbraco.Cms.Api.Management" Version="[15.0.0,)" />
-		<PackageReference Include="Umbraco.Cms.Core" Version="[15.0.0,)" />
+		<PackageReference Include="Umbraco.Cms.Api.Management" Version="[16.0.0,)" />
+		<PackageReference Include="Umbraco.Cms.Core" Version="[16.0.0,)" />
 	</ItemGroup>
 
 
